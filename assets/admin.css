@@ -1,0 +1,66 @@
+/**
+ * Settings-page styles — the ibracodes admin design language, scoped under
+ * .iaf-admin, logical properties for RTL/LTR parity.
+ */
+#setting-error-settings_updated { display: none; }
+
+.iaf-admin { margin: 20px 20px 0 2px; color: #141519; }
+html[dir="rtl"] .iaf-admin { margin: 20px 2px 0 20px; }
+.iaf-admin * { box-sizing: border-box; }
+.iaf-admin form { background: #f7f8fa; border: 1px solid #14151914; border-radius: 16px; overflow: clip; max-width: 860px; }
+
+.iaf-head { background: linear-gradient(150deg, #e9edfb 0%, #f5f7fa 40%, #eaf4ee 100%); border-bottom: 1px solid #14151914; padding: 22px 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.iaf-brand { display: flex; align-items: center; gap: 14px; }
+.iaf-brand-icon { width: 40px; height: 40px; border-radius: 11px; background: #fff; border: 1px solid #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.iaf-brand-icon svg { width: 19px; height: 19px; }
+.iaf-brand-name img { height: 14px; display: block; }
+.iaf-brand-name strong { display: block; font-size: 25px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; margin-top: 6px; }
+.iaf-head-meta { display: flex; align-items: center; gap: 12px; }
+.iaf-version { font-size: 12.5px; color: #5a5f6b; }
+.iaf-docs { background: #ffffffcc; border: 1px solid #fff; border-radius: 980px; font-size: 13px; padding: 7px 16px; color: #141519; text-decoration: none; }
+.iaf-docs:hover { color: #0071e3; }
+
+.iaf-notice { margin: 16px 28px 0; background: #e7f4ec; border: 1px solid #00a32a33; border-radius: 12px; padding: 12px 16px; display: flex; align-items: center; gap: 11px; font-size: 13.5px; color: #1d4a2c; }
+.iaf-notice-check { width: 19px; height: 19px; border-radius: 50%; background: #00a32a; color: #fff; font-size: 11px; display: flex; align-items: center; justify-content: center; }
+
+.iaf-body { padding: 20px 28px 8px; display: flex; flex-direction: column; gap: 12px; }
+.iaf-card { background: #fff; border: 1px solid #14151914; border-radius: 16px; overflow: hidden; }
+.iaf-pad { padding: 18px 22px 20px; }
+.iaf-card-title { font-size: 15px; font-weight: 600; }
+.iaf-card-sub { font-size: 12.5px; color: #5a5f6b; margin-top: 3px; line-height: 1.55; max-width: 560px; }
+
+.iaf-status { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.iaf-chip { display: inline-block; font-size: 12px; font-weight: 600; padding: 5px 13px; border-radius: 980px; white-space: nowrap; }
+.iaf-chip-ok { background: #e7f4ec; color: #00822a; }
+.iaf-chip-warn { background: #fdf6e3; color: #8a6300; }
+.iaf-chip-off { background: #fbeaea; color: #b3372f; }
+
+.iaf-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; padding: 16px 22px; border-bottom: 1px solid #14151910; }
+.iaf-card > .iaf-row:last-child { border-bottom: 0; }
+.iaf-flip { cursor: pointer; position: relative; }
+.iaf-row-label { display: block; font-size: 14.5px; font-weight: 500; }
+.iaf-row-help { display: block; font-size: 12.5px; color: #5a5f6b; line-height: 1.5; margin-top: 3px; max-width: 560px; }
+.iaf-flip input { position: absolute; opacity: 0; pointer-events: none; }
+.iaf-switch { width: 42px; height: 24px; border-radius: 980px; background: #d5d9e0; position: relative; flex-shrink: 0; transition: background 0.22s ease; }
+.iaf-switch::after { content: ''; position: absolute; top: 2px; inset-inline-end: 2px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px #14151933; transition: transform 0.22s ease; }
+.iaf-flip input:checked ~ .iaf-switch { background: #141519; }
+.iaf-flip input:checked ~ .iaf-switch::after { transform: translateX(-18px); }
+html[dir="rtl"] .iaf-flip input:checked ~ .iaf-switch::after { transform: translateX(18px); }
+.iaf-flip input:focus-visible ~ .iaf-switch { outline: 2px solid #0071e3; outline-offset: 2px; }
+
+.iaf-quality input { width: 74px; text-align: center; font-size: 15px; padding: 8px 0; border: 1px solid #14151920; border-radius: 9px; background: #fff; color: #141519; }
+
+.iaf-bulk-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.iaf-run { border: 0; background: #141519; color: #fff; font-size: 14px; font-weight: 500; padding: 10px 24px; border-radius: 980px; cursor: pointer; transition: background 0.22s; }
+.iaf-run:hover { background: #0071e3; }
+.iaf-run:disabled { opacity: 0.45; cursor: default; }
+.iaf-progress { margin-top: 16px; }
+.iaf-progress-track { height: 8px; border-radius: 980px; background: #eef0f4; overflow: hidden; }
+.iaf-progress-fill { height: 100%; width: 0; border-radius: 980px; background: #141519; transition: width 0.3s ease; }
+.iaf-progress-label { font-size: 12.5px; color: #5a5f6b; margin-top: 8px; }
+.iaf-totals { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 16px; font-size: 13px; font-weight: 500; }
+.iaf-fineprint { font-size: 12px; color: #8a8f9a; line-height: 1.55; margin: 12px 0 0; max-width: 620px; }
+
+.iaf-savebar { position: sticky; bottom: 0; background: #ffffffeb; backdrop-filter: blur(14px); border-top: 1px solid #14151914; padding: 13px 28px; display: flex; justify-content: flex-end; }
+.iaf-save { border: 0; background: #141519; color: #fff; font-size: 14px; font-weight: 500; padding: 10px 26px; border-radius: 980px; cursor: pointer; transition: background 0.22s; }
+.iaf-save:hover { background: #0071e3; }

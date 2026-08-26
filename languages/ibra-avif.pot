@@ -1,0 +1,81 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: IBRA AVIF Converter 1.0.0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: \n"
+
+msgid "AVIF Converter"
+msgstr ""
+
+msgid "Documentation"
+msgstr ""
+
+msgid "Settings saved."
+msgstr ""
+
+msgid "Server capability"
+msgstr ""
+
+msgid "This server encodes AVIF — new image sizes are generated as AVIF."
+msgstr ""
+
+msgid "This server cannot encode AVIF, so the plugin falls back to WebP — still a major saving over JPEG/PNG."
+msgstr ""
+
+msgid "This server can encode neither AVIF nor WebP. Ask your host to enable GD or Imagick with AVIF/WebP support — until then the plugin stays inactive."
+msgstr ""
+
+msgid "Unsupported"
+msgstr ""
+
+msgid "Convert new uploads"
+msgstr ""
+
+msgid "Every generated image size is written in the modern format. The original upload is never modified — it stays available for social-preview scrapers and as a pristine source."
+msgstr ""
+
+msgid "Quality"
+msgstr ""
+
+msgid "70 is the sweet spot. Below ~65, fine text in screenshots starts to smear."
+msgstr ""
+
+msgid "Convert the existing library"
+msgstr ""
+
+msgid "%d image is waiting for conversion."
+msgid_plural "%d images are waiting for conversion."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Convert entire library"
+msgstr ""
+
+msgid "Converted so far: %d image"
+msgid_plural "Converted so far: %d images"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Visitors download %s less"
+msgstr ""
+
+msgid "Old JPEG/PNG size files are kept on disk so image links inside existing posts never break; “less” measures what visitors download from now on."
+msgstr ""
+
+msgid "Save settings"
+msgstr ""
+
+msgid "Converting %1$d of %2$d…"
+msgstr ""
+
+msgid "Done — the whole library is converted."
+msgstr ""
+
+msgid "Nothing to convert — the library is already up to date."
+msgstr ""
+
+msgid "%d images failed — check that their files exist."
+msgstr ""

@@ -1,0 +1,81 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: IBRA AVIF Converter 1.0.0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: he_IL\n"
+
+msgid "AVIF Converter"
+msgstr "המרת AVIF"
+
+msgid "Documentation"
+msgstr "תיעוד"
+
+msgid "Settings saved."
+msgstr "ההגדרות נשמרו."
+
+msgid "Server capability"
+msgstr "תמיכת השרת"
+
+msgid "This server encodes AVIF — new image sizes are generated as AVIF."
+msgstr "השרת מקודד AVIF — גרסאות התמונות החדשות נוצרות כ-AVIF."
+
+msgid "This server cannot encode AVIF, so the plugin falls back to WebP — still a major saving over JPEG/PNG."
+msgstr "השרת לא מקודד AVIF, ולכן הפלאגין עובר אוטומטית ל-WebP — עדיין חיסכון משמעותי לעומת JPEG/PNG."
+
+msgid "This server can encode neither AVIF nor WebP. Ask your host to enable GD or Imagick with AVIF/WebP support — until then the plugin stays inactive."
+msgstr "השרת לא מקודד AVIF וגם לא WebP. בקשו מהאחסון להפעיל GD או Imagick עם תמיכה בפורמטים — עד אז הפלאגין לא פעיל."
+
+msgid "Unsupported"
+msgstr "אין תמיכה"
+
+msgid "Convert new uploads"
+msgstr "המרת העלאות חדשות"
+
+msgid "Every generated image size is written in the modern format. The original upload is never modified — it stays available for social-preview scrapers and as a pristine source."
+msgstr "כל גרסת תמונה שנוצרת נכתבת בפורמט המודרני. הקובץ המקורי לא נוגע לעולם — הוא נשאר זמין לתצוגות שיתוף ברשתות וכמקור נקי."
+
+msgid "Quality"
+msgstr "איכות"
+
+msgid "70 is the sweet spot. Below ~65, fine text in screenshots starts to smear."
+msgstr "70 היא נקודת האיזון. מתחת ל-65 בערך, טקסט עדין בצילומי מסך מתחיל להימרח."
+
+msgid "Convert the existing library"
+msgstr "המרת הספרייה הקיימת"
+
+msgid "%d image is waiting for conversion."
+msgid_plural "%d images are waiting for conversion."
+msgstr[0] "תמונה אחת ממתינה להמרה."
+msgstr[1] "%d תמונות ממתינות להמרה."
+
+msgid "Convert entire library"
+msgstr "המרת כל הספרייה"
+
+msgid "Converted so far: %d image"
+msgid_plural "Converted so far: %d images"
+msgstr[0] "הומרה עד עכשיו תמונה אחת"
+msgstr[1] "הומרו עד עכשיו %d תמונות"
+
+msgid "Visitors download %s less"
+msgstr "המבקרים מורידים %s פחות"
+
+msgid "Old JPEG/PNG size files are kept on disk so image links inside existing posts never break; “less” measures what visitors download from now on."
+msgstr "קובצי ה-JPEG/PNG הישנים נשמרים בדיסק כדי שקישורי תמונות בפוסטים קיימים לא יישברו; ה\"פחות\" מודד מה המבקרים מורידים מעכשיו."
+
+msgid "Save settings"
+msgstr "שמירת הגדרות"
+
+msgid "Converting %1$d of %2$d…"
+msgstr "ממיר %1$d מתוך %2$d…"
+
+msgid "Done — the whole library is converted."
+msgstr "הסתיים — כל הספרייה הומרה."
+
+msgid "Nothing to convert — the library is already up to date."
+msgstr "אין מה להמיר — הספרייה כבר מעודכנת."
+
+msgid "%d images failed — check that their files exist."
+msgstr "%d תמונות נכשלו — בדקו שהקבצים שלהן קיימים."
