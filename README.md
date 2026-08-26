@@ -11,6 +11,13 @@ Serves your WordPress images as **AVIF** automatically. Built by
   what your server supports.
 - **Existing library** — one click converts everything already uploaded, in
   batches with a progress bar and a "visitors download X less" counter.
+- **Existing content** — a second queue rewrites stored image URLs to their
+  AVIF twins across post content and page-builder data (Elementor's
+  JSON-escaped URLs included), so old pages serve AVIF without being
+  re-saved. Serialized meta is round-tripped safely, object meta is never
+  touched, a URL is only swapped when its AVIF file exists, and Elementor's
+  CSS cache is invalidated for rewritten pages. Take a DB backup first, as
+  with any bulk content change.
 - **Originals are never touched** — the pristine upload remains for
   social-preview scrapers (which don't render AVIF) and as a lossless source.
 - **Old size files are kept** so image URLs inside existing posts never break.

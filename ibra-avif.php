@@ -4,7 +4,7 @@
  * Plugin Name: IBRA AVIF Converter
  * Plugin URI: https://github.com/Ibracodes-agency/ibra-avif
  * Description: Serves your images as AVIF automatically — new uploads convert on the fly, the existing library converts in one click, and servers without AVIF support fall back to WebP.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: ibracodes
  * Author URI: https://ibracodes.com
  * License: GPL-2.0-or-later
@@ -19,7 +19,7 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
-const VERSION = '1.0.0';
+const VERSION = '1.1.0';
 const OPTION = 'iaf_settings';
 const STATS = 'iaf_stats';
 const MARKER = '_iaf_converted';
@@ -29,6 +29,7 @@ define(__NAMESPACE__.'\\URL', plugin_dir_url(__FILE__));
 
 require DIR.'includes/convert.php';
 require DIR.'includes/bulk.php';
+require DIR.'includes/rewrite.php';
 require DIR.'includes/settings.php';
 
 add_action('init', function () {

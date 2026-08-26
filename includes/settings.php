@@ -168,6 +168,28 @@ function settings_page(): void
                     </div>
                     <p class="iaf-fineprint"><?php esc_html_e('Old JPEG/PNG size files are kept on disk so image links inside existing posts never break; “less” measures what visitors download from now on.', 'ibra-avif'); ?></p>
                 </div>
+
+                <div class="iaf-card iaf-pad">
+                    <div class="iaf-bulk-head">
+                        <div>
+                            <div class="iaf-card-title"><?php esc_html_e('Update URLs in existing content', 'ibra-avif'); ?></div>
+                            <div class="iaf-card-sub"><?php esc_html_e('Page builders like Elementor copy image URLs as text into their saved pages, so old pages keep serving JPEG even after conversion. This rewrites those URLs to the AVIF versions across posts, pages and builder data — a URL is only touched when its AVIF file actually exists.', 'ibra-avif'); ?></div>
+                        </div>
+                        <button type="button" class="iaf-run" data-iaf-run-rewrite <?php disabled(! $target); ?>><?php esc_html_e('Update all content', 'ibra-avif'); ?></button>
+                    </div>
+                    <div class="iaf-progress" data-iaf-rewrite-progress hidden>
+                        <div class="iaf-progress-track"><div class="iaf-progress-fill" data-iaf-rewrite-bar></div></div>
+                        <div class="iaf-progress-label" data-iaf-rewrite-label></div>
+                    </div>
+                    <div class="iaf-totals">
+                        <span data-iaf-rewritten data-template="<?php esc_attr_e('URLs updated: %d', 'ibra-avif'); ?>"><?php printf(
+                            /* translators: %d: number of rewritten URLs */
+                            esc_html__('URLs updated: %d', 'ibra-avif'),
+                            (int) ($stats['rewritten'] ?? 0),
+                        ); ?></span>
+                    </div>
+                    <p class="iaf-fineprint"><?php esc_html_e('Run this after converting the library. It edits stored content — take a database backup first, as with any bulk content change.', 'ibra-avif'); ?></p>
+                </div>
             </div>
 
             <div class="iaf-savebar">

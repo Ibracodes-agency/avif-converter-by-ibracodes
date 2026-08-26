@@ -79,3 +79,18 @@ msgstr "אין מה להמיר — הספרייה כבר מעודכנת."
 
 msgid "%d images failed — check that their files exist."
 msgstr "%d תמונות נכשלו — בדקו שהקבצים שלהן קיימים."
+
+msgid "Update URLs in existing content"
+msgstr "עדכון כתובות בתוכן קיים"
+
+msgid "Page builders like Elementor copy image URLs as text into their saved pages, so old pages keep serving JPEG even after conversion. This rewrites those URLs to the AVIF versions across posts, pages and builder data — a URL is only touched when its AVIF file actually exists."
+msgstr "בוני עמודים כמו אלמנטור מעתיקים כתובות תמונות כטקסט לתוך העמודים השמורים, ולכן עמודים ישנים ממשיכים להגיש JPEG גם אחרי ההמרה. הכלי מחליף את הכתובות לגרסאות ה-AVIF בפוסטים, בעמודים ובנתוני הבילדר — כתובת מוחלפת רק אם קובץ ה-AVIF שלה באמת קיים."
+
+msgid "Update all content"
+msgstr "עדכון כל התוכן"
+
+msgid "URLs updated: %d"
+msgstr "כתובות שעודכנו: %d"
+
+msgid "Run this after converting the library. It edits stored content — take a database backup first, as with any bulk content change."
+msgstr "מריצים אחרי המרת הספרייה. הכלי עורך תוכן שמור — מומלץ גיבוי בסיס נתונים לפני, כמו בכל שינוי תוכן מרוכז."
