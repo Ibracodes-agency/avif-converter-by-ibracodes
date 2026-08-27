@@ -7,7 +7,7 @@
 (function () {
   'use strict';
 
-  var config = window.iafConfig;
+  var config = window.ibracodesAvifConfig;
   if (!config) return;
 
   var sprintf = function (template) {
@@ -36,6 +36,7 @@
   var runner = function (options) {
     var run = document.querySelector(options.run);
     if (!run) return;
+    var labels = Object.assign({}, config.labels, options.labels || {});
 
     var progress = document.querySelector(options.progress);
     var bar = document.querySelector(options.bar);
@@ -49,7 +50,8 @@
       api(options.queue).then(function (queue) {
         var ids = queue.ids || [];
         if (!ids.length) {
-          label.textContent = config.labels.empty;
+          label.textContent = labels.empty;
+          run.disabled = false;
           return;
         }
 
@@ -59,13 +61,15 @@
         var next = function () {
           if (done >= ids.length) {
             bar.style.width = '100%';
-            label.textContent = config.labels.done + (failed ? ' ' + sprintf(config.labels.failed, failed) : '');
+            label.textContent = (options.onDone ? options.onDone() : labels.done) +
+              (failed ? ' ' + sprintf(labels.failed, failed) : '');
+            if (options.preview) run.disabled = false;
             return;
           }
 
-          label.textContent = sprintf(config.labels.progress, done + 1, ids.length);
+          label.textContent = sprintf(labels.progress, done + 1, ids.length);
 
-          api(options.endpoint, { method: 'POST', body: JSON.stringify({ id: ids[done] }) })
+          api(options.endpoint, { method: 'POST', body: JSON.stringify(Object.assign({ id: ids[done] }, options.body || {})) })
             .then(options.onResult || function () {})
             .catch(function () { failed++; })
             .finally(function () {
@@ -119,5 +123,22 @@
       rewrittenTotal += result.replaced || 0;
       if (rewrittenOut) rewrittenOut.textContent = sprintf(rewrittenOut.dataset.template, rewrittenTotal);
     }
+  });
+
+  // dry run — reports what a real update would change, writes nothing
+  var previewTotal = 0;
+
+  runner({
+    run: '[data-iaf-preview-rewrite]',
+    progress: '[data-iaf-rewrite-progress]',
+    bar: '[data-iaf-rewrite-bar]',
+    label: '[data-iaf-rewrite-label]',
+    queue: 'rewrite-queue',
+    endpoint: 'rewrite',
+    preview: true,
+    body: { preview: true },
+    labels: { progress: config.labels.previewing },
+    onResult: function (result) { previewTotal += result.replaced || 0; },
+    onDone: function () { return sprintf(config.labels.previewDone, previewTotal); }
   });
 })();

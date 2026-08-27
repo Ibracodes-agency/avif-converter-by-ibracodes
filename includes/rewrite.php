@@ -13,7 +13,7 @@
  * string-replaced raw — and meta containing objects is skipped entirely.
  */
 
-namespace IbraAvif;
+namespace IbracodesAvif;
 
 use WP_Error;
 use WP_REST_Request;
@@ -23,16 +23,27 @@ if (! defined('ABSPATH')) {
 }
 
 add_action('rest_api_init', function () {
-    register_rest_route('ibra-avif/v1', '/rewrite-queue', [
+    register_rest_route('ibracodes-avif-converter/v1', '/rewrite-queue', [
         'methods' => 'GET',
         'permission_callback' => fn () => current_user_can('manage_options'),
         'callback' => __NAMESPACE__.'\\rest_rewrite_queue',
     ]);
 
-    register_rest_route('ibra-avif/v1', '/rewrite', [
+    register_rest_route('ibracodes-avif-converter/v1', '/rewrite', [
         'methods' => 'POST',
         'permission_callback' => fn () => current_user_can('manage_options'),
         'callback' => __NAMESPACE__.'\\rest_rewrite',
+        'args' => [
+            'id' => [
+                'required' => true,
+                'validate_callback' => fn ($value) => is_numeric($value) && (int) $value > 0,
+                'sanitize_callback' => 'absint',
+            ],
+            'preview' => [
+                'default' => false,
+                'sanitize_callback' => 'rest_sanitize_boolean',
+            ],
+        ],
     ]);
 });
 
@@ -51,20 +62,21 @@ function rest_rewrite_queue()
 function rest_rewrite(WP_REST_Request $request)
 {
     $id = (int) $request['id'];
+    $preview = (bool) $request['preview'];
 
-    if (! $id || ! get_post($id)) {
-        return new WP_Error('not_found', 'No such post', ['status' => 404]);
+    if (! get_post($id)) {
+        return new WP_Error('not_found', __('No such post', 'ibracodes-avif-converter'), ['status' => 404]);
     }
 
-    $replaced = rewrite_post($id);
+    $replaced = rewrite_post($id, $preview);
 
-    if ($replaced) {
+    if ($replaced && ! $preview) {
         $stats = (array) get_option(STATS, []);
         $stats['rewritten'] = (int) ($stats['rewritten'] ?? 0) + $replaced;
         update_option(STATS, $stats, false);
     }
 
-    return ['id' => $id, 'replaced' => $replaced];
+    return ['id' => $id, 'replaced' => $replaced, 'preview' => $preview];
 }
 
 /**
@@ -137,8 +149,11 @@ function contains_object(mixed $value): bool
  * Rewrite one post: content, excerpt and every meta row. Returns how many
  * URLs were swapped. Elementor's CSS cache is invalidated when its data
  * changed, so regenerated stylesheets pick the new URLs up too.
+ *
+ * In preview mode nothing is written — the same code path just reports how
+ * many URLs a real run would change.
  */
-function rewrite_post(int $post_id): int
+function rewrite_post(int $post_id, bool $preview = false): int
 {
     $count = 0;
     $post = get_post($post_id);
@@ -146,7 +161,7 @@ function rewrite_post(int $post_id): int
     $content = rewrite_urls($post->post_content, $count);
     $excerpt = rewrite_urls($post->post_excerpt, $count);
 
-    if ($content !== $post->post_content || $excerpt !== $post->post_excerpt) {
+    if (! $preview && ($content !== $post->post_content || $excerpt !== $post->post_excerpt)) {
         wp_update_post([
             'ID' => $post_id,
             'post_content' => wp_slash($content),
@@ -173,10 +188,13 @@ function rewrite_post(int $post_id): int
                 continue;
             }
 
-            // update_post_meta() unslashes what it stores, which would strip
-            // the \/ escaping out of builder JSON — pre-slash the new value.
-            // $value stays raw: prev_value is matched against the stored row.
-            update_post_meta($post_id, $key, wp_slash($rewritten), $value);
+            if (! $preview) {
+                // update_post_meta() unslashes what it stores, which would
+                // strip the \/ escaping out of builder JSON — pre-slash the
+                // new value. $value stays raw: prev_value matches the row.
+                update_post_meta($post_id, $key, wp_slash($rewritten), $value);
+            }
+
             $count += $rowCount;
 
             if (str_starts_with($key, '_elementor')) {
@@ -185,7 +203,7 @@ function rewrite_post(int $post_id): int
         }
     }
 
-    if ($elementorChanged) {
+    if ($elementorChanged && ! $preview) {
         delete_post_meta($post_id, '_elementor_css');
         delete_post_meta($post_id, '_elementor_element_cache');
     }

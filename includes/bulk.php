@@ -9,7 +9,7 @@
  * "Saved" therefore measures what visitors download, not disk usage.
  */
 
-namespace IbraAvif;
+namespace IbracodesAvif;
 
 use WP_Error;
 use WP_REST_Request;
@@ -19,13 +19,13 @@ if (! defined('ABSPATH')) {
 }
 
 add_action('rest_api_init', function () {
-    register_rest_route('ibra-avif/v1', '/queue', [
+    register_rest_route('ibracodes-avif-converter/v1', '/queue', [
         'methods' => 'GET',
         'permission_callback' => fn () => current_user_can('manage_options'),
         'callback' => __NAMESPACE__.'\\rest_queue',
     ]);
 
-    register_rest_route('ibra-avif/v1', '/convert', [
+    register_rest_route('ibracodes-avif-converter/v1', '/convert', [
         'methods' => 'POST',
         'permission_callback' => fn () => current_user_can('manage_options'),
         'callback' => __NAMESPACE__.'\\rest_convert',

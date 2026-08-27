@@ -8,5 +8,5 @@ if (! defined('WP_UNINSTALL_PLUGIN')) {
     exit;
 }
 
-delete_option('iaf_settings');
-delete_option('iaf_stats');
+delete_option('ibracodes_avif_settings');
+delete_option('ibracodes_avif_stats');

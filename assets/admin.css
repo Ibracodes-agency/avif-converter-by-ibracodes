@@ -54,6 +54,9 @@ html[dir="rtl"] .iaf-flip input:checked ~ .iaf-switch::after { transform: transl
 .iaf-run { border: 0; background: #141519; color: #fff; font-size: 14px; font-weight: 500; padding: 10px 24px; border-radius: 980px; cursor: pointer; transition: background 0.22s; }
 .iaf-run:hover { background: #0071e3; }
 .iaf-run:disabled { opacity: 0.45; cursor: default; }
+.iaf-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.iaf-run-ghost { background: transparent; color: #141519; border: 1px solid #14151920; }
+.iaf-run-ghost:hover { background: transparent; border-color: #141519; color: #141519; }
 .iaf-progress { margin-top: 16px; }
 .iaf-progress-track { height: 8px; border-radius: 980px; background: #eef0f4; overflow: hidden; }
 .iaf-progress-fill { height: 100%; width: 0; border-radius: 980px; background: #141519; transition: width 0.3s ease; }

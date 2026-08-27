@@ -8,7 +8,7 @@
  * formats (social-preview scrapers most of all).
  */
 
-namespace IbraAvif;
+namespace IbracodesAvif;
 
 if (! defined('ABSPATH')) {
     exit;

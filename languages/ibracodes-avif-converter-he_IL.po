@@ -97,3 +97,15 @@ msgstr "כתובות שעודכנו: %d"
 
 msgid "Run this after converting the library. It edits stored content — take a database backup first, as with any bulk content change."
 msgstr "מריצים אחרי המרת הספרייה. הכלי עורך תוכן שמור — מומלץ גיבוי בסיס נתונים לפני, כמו בכל שינוי תוכן מרוכז."
+
+msgid "Preview changes"
+msgstr "תצוגה מקדימה"
+
+msgid "Checking %1$d of %2$d…"
+msgstr "בודק %1$d מתוך %2$d…"
+
+msgid "Preview complete — %d URLs would be updated. Nothing has been changed yet."
+msgstr "הבדיקה הסתיימה — %d כתובות יעודכנו. עדיין לא בוצע שום שינוי."
+
+msgid "No such post"
+msgstr "הפוסט לא נמצא"

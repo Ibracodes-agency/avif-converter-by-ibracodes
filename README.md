@@ -29,6 +29,9 @@ Serves your WordPress images as **AVIF** automatically. Built by
 Copy this folder to `wp-content/plugins/ibra-avif` (or upload a zip),
 activate, then check **Settings → Ibracodes AVIF Converter**.
 
+The canonical directory listing text lives in `readme.txt` (WordPress.org
+format); this file is the GitHub-facing overview.
+
 ## Requirements
 
 PHP with GD or Imagick able to encode AVIF (ideal) or WebP (fallback).

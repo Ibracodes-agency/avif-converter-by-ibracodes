@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: IBRA AVIF Converter 1.0.0\n"
+"Project-Id-Version: Ibracodes AVIF Converter 1.2.0\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -8,6 +8,9 @@ msgstr ""
 "Language: \n"
 
 msgid "AVIF Converter"
+msgstr ""
+
+msgid "Ibracodes AVIF Converter"
 msgstr ""
 
 msgid "Documentation"
@@ -93,4 +96,16 @@ msgid "URLs updated: %d"
 msgstr ""
 
 msgid "Run this after converting the library. It edits stored content — take a database backup first, as with any bulk content change."
+msgstr ""
+
+msgid "Preview changes"
+msgstr ""
+
+msgid "Checking %1$d of %2$d…"
+msgstr ""
+
+msgid "Preview complete — %d URLs would be updated. Nothing has been changed yet."
+msgstr ""
+
+msgid "No such post"
 msgstr ""
