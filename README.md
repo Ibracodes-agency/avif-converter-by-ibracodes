@@ -1,4 +1,4 @@
-# IBRA AVIF Converter
+# Ibracodes AVIF Converter
 
 Serves your WordPress images as **AVIF** automatically. Built by
 [ibracodes](https://ibracodes.com).
@@ -27,7 +27,7 @@ Serves your WordPress images as **AVIF** automatically. Built by
 ## Install
 
 Copy this folder to `wp-content/plugins/ibra-avif` (or upload a zip),
-activate, then check **Settings → AVIF Converter**.
+activate, then check **Settings → Ibracodes AVIF Converter**.
 
 ## Requirements
 

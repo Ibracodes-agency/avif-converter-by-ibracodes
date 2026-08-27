@@ -140,8 +140,6 @@ function contains_object(mixed $value): bool
  */
 function rewrite_post(int $post_id): int
 {
-    global $wpdb;
-
     $count = 0;
     $post = get_post($post_id);
 
@@ -157,26 +155,31 @@ function rewrite_post(int $post_id): int
     }
 
     $elementorChanged = false;
-    $rows = $wpdb->get_results($wpdb->prepare(
-        "SELECT meta_id, meta_key, meta_value FROM {$wpdb->postmeta} WHERE post_id = %d",
-        $post_id,
-    ));
 
-    foreach ($rows as $row) {
-        $value = maybe_unserialize($row->meta_value);
+    // get_post_meta() with no key returns every row already unserialized and
+    // cached — no direct database query needed.
+    foreach (get_post_meta($post_id) as $key => $raw) {
+        foreach ($raw as $index => $stored) {
+            $value = maybe_unserialize($stored);
 
-        if (contains_object($value)) {
-            continue;
-        }
+            if (contains_object($value)) {
+                continue;
+            }
 
-        $rowCount = 0;
-        $rewritten = rewrite_value($value, $rowCount);
+            $rowCount = 0;
+            $rewritten = rewrite_value($value, $rowCount);
 
-        if ($rowCount > 0) {
-            update_metadata_by_mid('post', (int) $row->meta_id, $rewritten);
+            if ($rowCount === 0) {
+                continue;
+            }
+
+            // update_post_meta() unslashes what it stores, which would strip
+            // the \/ escaping out of builder JSON — pre-slash the new value.
+            // $value stays raw: prev_value is matched against the stored row.
+            update_post_meta($post_id, $key, wp_slash($rewritten), $value);
             $count += $rowCount;
 
-            if (str_starts_with($row->meta_key, '_elementor')) {
+            if (str_starts_with($key, '_elementor')) {
                 $elementorChanged = true;
             }
         }

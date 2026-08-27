@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Settings → AVIF Converter: capability status, the two settings and the
+ * Settings → Ibracodes AVIF Converter: capability status, the two settings and the
  * one-click bulk converter with live progress. Follows the ibracodes admin
  * design language (gradient header, cards, switches).
  */
@@ -14,7 +14,7 @@ if (! defined('ABSPATH')) {
 
 add_action('admin_menu', function () {
     add_options_page(
-        __('AVIF Converter', 'ibra-avif'),
+        __('Ibracodes AVIF Converter', 'ibra-avif'),
         __('AVIF Converter', 'ibra-avif'),
         'manage_options',
         'ibra-avif',
@@ -66,7 +66,10 @@ function settings_page(): void
     $target = target_mime();
     $stats = (array) get_option(STATS, []);
     $pending = count(pending_ids());
-    $saved = ! empty($_GET['settings-updated']);
+    // read-only display flag from WordPress's own settings redirect; the
+    // save itself is nonce-checked by options.php
+    // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+    $saved = isset($_GET['settings-updated']) && sanitize_text_field(wp_unslash($_GET['settings-updated'])) === 'true';
     ?>
     <div class="wrap iaf-admin">
         <hr class="wp-header-end" style="display:none">

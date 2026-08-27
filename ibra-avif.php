@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name: IBRA AVIF Converter
+ * Plugin Name: Ibracodes AVIF Converter
  * Plugin URI: https://github.com/Ibracodes-agency/ibra-avif
  * Description: Serves your images as AVIF automatically — new uploads convert on the fly, the existing library converts in one click, and servers without AVIF support fall back to WebP.
  * Version: 1.1.0
