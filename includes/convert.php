@@ -59,7 +59,7 @@ function active(): bool
 }
 
 add_filter('image_editor_output_format', function ($formats) {
-    if (! active() || apply_filters('ibra_avif_skip', false)) {
+    if (! active() || apply_filters('ibracodes_avif_skip', false)) {
         return $formats;
     }
 

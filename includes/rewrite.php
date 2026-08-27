@@ -23,13 +23,13 @@ if (! defined('ABSPATH')) {
 }
 
 add_action('rest_api_init', function () {
-    register_rest_route('ibracodes-avif-converter/v1', '/rewrite-queue', [
+    register_rest_route('avif-converter-by-ibracodes/v1', '/rewrite-queue', [
         'methods' => 'GET',
         'permission_callback' => fn () => current_user_can('manage_options'),
         'callback' => __NAMESPACE__.'\\rest_rewrite_queue',
     ]);
 
-    register_rest_route('ibracodes-avif-converter/v1', '/rewrite', [
+    register_rest_route('avif-converter-by-ibracodes/v1', '/rewrite', [
         'methods' => 'POST',
         'permission_callback' => fn () => current_user_can('manage_options'),
         'callback' => __NAMESPACE__.'\\rest_rewrite',
@@ -65,7 +65,7 @@ function rest_rewrite(WP_REST_Request $request)
     $preview = (bool) $request['preview'];
 
     if (! get_post($id)) {
-        return new WP_Error('not_found', __('No such post', 'ibracodes-avif-converter'), ['status' => 404]);
+        return new WP_Error('not_found', __('No such post', 'avif-converter-by-ibracodes'), ['status' => 404]);
     }
 
     $replaced = rewrite_post($id, $preview);

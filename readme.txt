@@ -1,9 +1,9 @@
-=== Ibracodes AVIF Converter ===
+=== AVIF Converter by Ibracodes ===
 Contributors: ibracodes
 Tags: avif, webp, image optimization, performance, compression
 Requires at least: 6.0
-Tested up to: 6.9
-Stable tag: 1.2.1
+Tested up to: 7.1
+Stable tag: 1.2.2
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -37,9 +37,10 @@ automatically.
 
 **What it does not do**
 
-* It never modifies your original uploads. The original file stays untouched
-  and remains available for anything that cannot read AVIF, such as social
-  network link previews.
+* It never modifies your original uploads. WordPress keeps the file exactly as
+  you uploaded it and it stays reachable through the standard original-image
+  functions, so anything that cannot read AVIF — social network link previews,
+  for example — still works.
 * It never deletes your old JPEG or PNG files, so image links inside existing
   content can never break.
 * It does not contact any external server, collect any data, or add anything to
@@ -56,7 +57,7 @@ what to ask your host for if neither is.
 1. Upload the plugin folder to `/wp-content/plugins/`, or install it through
    Plugins → Add New.
 2. Activate the plugin.
-3. Go to Settings → Ibracodes AVIF Converter and check the server capability
+3. Go to Settings → AVIF Converter by Ibracodes and check the server capability
    card at the top.
 4. Optional: press "Convert entire library" to convert images you uploaded
    before installing the plugin.
@@ -73,8 +74,15 @@ below about 65, fine text inside screenshots starts to smear.
 
 = What happens to my original images? =
 
-Nothing. Only the resized versions that WordPress generates are converted. The
-original upload is kept exactly as you uploaded it.
+Nothing is lost. WordPress keeps your uploaded file untouched on the server and
+serves the converted versions to visitors, so you always have the pristine
+source to go back to.
+
+= Does it keep my alt text, captions and titles? =
+
+Yes. Converting only rewrites image files; the alt text, title, caption and
+description stored with each image are never touched, including during the bulk
+conversion.
 
 = My server does not support AVIF. Is the plugin useless? =
 
@@ -113,6 +121,12 @@ No. It makes no external requests and collects no information.
 
 == Changelog ==
 
+= 1.2.2 =
+* Passes the official Plugin Check with no errors: translator comments,
+  prefixed filter name, documented admin query.
+* Tested on WordPress 7.1, including alt text, captions and titles surviving
+  conversion.
+
 = 1.2.1 =
 * Directory assets and screenshots.
 * Fixed the settings switches rendering inverted on left-to-right admins.
@@ -133,6 +147,9 @@ No. It makes no external requests and collects no information.
   library.
 
 == Upgrade Notice ==
+
+= 1.2.2 =
+Plugin Check clean and verified on WordPress 7.1.
 
 = 1.2.1 =
 Fixes inverted settings switches on left-to-right admins.

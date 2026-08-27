@@ -115,3 +115,6 @@ msgstr "מעדכן %1$d מתוך %2$d…"
 
 msgid "Done — every page now points at the converted images."
 msgstr "הסתיים — כל העמודים מפנים עכשיו לתמונות המומרות."
+
+msgid "Image sizes are written in the modern format. Your uploaded file is kept untouched as the original, so alt text, captions and social-preview scrapers are unaffected."
+msgstr "גרסאות התמונה נכתבות בפורמט המודרני. הקובץ שהעליתם נשמר כמו שהוא כמקור, כך שטקסט אלטרנטיבי, כיתובים ותצוגות שיתוף ברשתות לא מושפעים."

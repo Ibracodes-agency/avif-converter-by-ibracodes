@@ -1,17 +1,17 @@
 <?php
 
 /**
- * Plugin Name:       Ibracodes AVIF Converter
+ * Plugin Name:       AVIF Converter by Ibracodes
  * Plugin URI:        https://ibracodes.com/plugins/avif-converter/
  * Description:       Converts uploaded images to AVIF (WebP fallback), converts the existing library, and updates image URLs in old content.
- * Version:           1.2.1
+ * Version:           1.2.2
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            ibracodes
  * Author URI:        https://ibracodes.com
  * License:           GPLv2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       ibracodes-avif-converter
+ * Text Domain:       avif-converter-by-ibracodes
  * Domain Path:       /languages
  */
 
@@ -21,7 +21,7 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
-const VERSION = '1.2.1';
+const VERSION = '1.2.2';
 const OPTION = 'ibracodes_avif_settings';
 const STATS = 'ibracodes_avif_stats';
 const MARKER = '_ibracodes_avif_converted';
