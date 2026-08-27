@@ -38,3 +38,31 @@ PHP with GD or Imagick able to encode AVIF (ideal) or WebP (fallback).
 WordPress 6.5+.
 
 License: GPL-2.0-or-later
+
+## Releasing to WordPress.org
+
+Publishing is automated — a tag is the release:
+
+```bash
+# 1. bump the version in three places (all must agree)
+#    - avif-converter-by-ibracodes.php  → Version: and const VERSION
+#    - readme.txt                       → Stable tag: and a changelog entry
+# 2. verify locally
+bin/check-version.sh
+# 3. release
+git tag 1.2.3 && git push origin main --tags
+```
+
+The `deploy` workflow rejects the release if those versions disagree, then
+builds the plugin (honouring `.distignore`), commits it to SVN trunk, creates
+the matching SVN tag, and uploads the banners, icons and screenshots from
+`.wordpress-org/`.
+
+Banner, icon, screenshot or `readme.txt` changes alone do not need a release:
+pushing them to `main` runs the `assets` workflow, which updates the listing
+in place.
+
+**One-time setup** (after the plugin is approved and SVN credentials arrive):
+add two repository secrets under Settings → Secrets and variables → Actions —
+`SVN_USERNAME` and `SVN_PASSWORD`, your WordPress.org login. Nothing is
+published until those exist.

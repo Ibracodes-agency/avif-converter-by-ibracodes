@@ -1,5 +1,8 @@
+# Everything here is development-only and must never reach the plugin zip.
 /.git
 /.github
+/.wordpress-org
+/bin
 /.gitignore
 /.distignore
 /README.md
