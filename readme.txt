@@ -3,7 +3,7 @@ Contributors: ibracodes
 Tags: avif, webp, image optimization, performance, compression
 Requires at least: 6.0
 Tested up to: 6.9
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -113,6 +113,12 @@ No. It makes no external requests and collects no information.
 
 == Changelog ==
 
+= 1.2.1 =
+* Directory assets and screenshots.
+* Fixed the settings switches rendering inverted on left-to-right admins.
+* The content updater now has its own wording and a preview that reports
+  what would change without writing anything.
+
 = 1.2.0 =
 * Prepared for the WordPress plugin directory: renamed to Ibracodes AVIF
   Converter, longer unique prefixes, and standard WordPress data APIs.
@@ -128,5 +134,5 @@ No. It makes no external requests and collects no information.
 
 == Upgrade Notice ==
 
-= 1.2.0 =
-Renamed and prepared for the WordPress plugin directory.
+= 1.2.1 =
+Fixes inverted settings switches on left-to-right admins.

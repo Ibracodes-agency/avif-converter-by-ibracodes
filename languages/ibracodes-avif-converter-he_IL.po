@@ -109,3 +109,9 @@ msgstr "הבדיקה הסתיימה — %d כתובות יעודכנו. עדיי
 
 msgid "No such post"
 msgstr "הפוסט לא נמצא"
+
+msgid "Updating %1$d of %2$d…"
+msgstr "מעדכן %1$d מתוך %2$d…"
+
+msgid "Done — every page now points at the converted images."
+msgstr "הסתיים — כל העמודים מפנים עכשיו לתמונות המומרות."

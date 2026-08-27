@@ -41,6 +41,8 @@ add_action('admin_enqueue_scripts', function ($hook) {
             'done' => __('Done — the whole library is converted.', 'ibracodes-avif-converter'),
             'empty' => __('Nothing to convert — the library is already up to date.', 'ibracodes-avif-converter'),
             'failed' => __('%d images failed — check that their files exist.', 'ibracodes-avif-converter'),
+            'updating' => __('Updating %1$d of %2$d…', 'ibracodes-avif-converter'),
+            'updateDone' => __('Done — every page now points at the converted images.', 'ibracodes-avif-converter'),
             'previewing' => __('Checking %1$d of %2$d…', 'ibracodes-avif-converter'),
             'previewDone' => __('Preview complete — %d URLs would be updated. Nothing has been changed yet.', 'ibracodes-avif-converter'),
         ],

@@ -119,6 +119,7 @@
     label: '[data-iaf-rewrite-label]',
     queue: 'rewrite-queue',
     endpoint: 'rewrite',
+    labels: { progress: config.labels.updating, done: config.labels.updateDone },
     onResult: function (result) {
       rewrittenTotal += result.replaced || 0;
       if (rewrittenOut) rewrittenOut.textContent = sprintf(rewrittenOut.dataset.template, rewrittenTotal);

@@ -4,7 +4,7 @@
  * Plugin Name:       Ibracodes AVIF Converter
  * Plugin URI:        https://ibracodes.com/plugins/avif-converter/
  * Description:       Converts uploaded images to AVIF (WebP fallback), converts the existing library, and updates image URLs in old content.
- * Version:           1.2.0
+ * Version:           1.2.1
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            ibracodes
@@ -21,7 +21,7 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
-const VERSION = '1.2.0';
+const VERSION = '1.2.1';
 const OPTION = 'ibracodes_avif_settings';
 const STATS = 'ibracodes_avif_stats';
 const MARKER = '_ibracodes_avif_converted';

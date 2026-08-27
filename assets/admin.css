@@ -42,10 +42,12 @@ html[dir="rtl"] .iaf-admin { margin: 20px 2px 0 20px; }
 .iaf-row-help { display: block; font-size: 12.5px; color: #5a5f6b; line-height: 1.5; margin-top: 3px; max-width: 560px; }
 .iaf-flip input { position: absolute; opacity: 0; pointer-events: none; }
 .iaf-switch { width: 42px; height: 24px; border-radius: 980px; background: #d5d9e0; position: relative; flex-shrink: 0; transition: background 0.22s ease; }
-.iaf-switch::after { content: ''; position: absolute; top: 2px; inset-inline-end: 2px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px #14151933; transition: transform 0.22s ease; }
+/* knob rests at the inline start and travels to the end when on, so the
+   switch mirrors correctly in both text directions */
+.iaf-switch::after { content: ''; position: absolute; top: 2px; inset-inline-start: 2px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px #14151933; transition: transform 0.22s ease; }
 .iaf-flip input:checked ~ .iaf-switch { background: #141519; }
-.iaf-flip input:checked ~ .iaf-switch::after { transform: translateX(-18px); }
-html[dir="rtl"] .iaf-flip input:checked ~ .iaf-switch::after { transform: translateX(18px); }
+.iaf-flip input:checked ~ .iaf-switch::after { transform: translateX(18px); }
+html[dir="rtl"] .iaf-flip input:checked ~ .iaf-switch::after { transform: translateX(-18px); }
 .iaf-flip input:focus-visible ~ .iaf-switch { outline: 2px solid #0071e3; outline-offset: 2px; }
 
 .iaf-quality input { width: 74px; text-align: center; font-size: 15px; padding: 8px 0; border: 1px solid #14151920; border-radius: 9px; background: #fff; color: #141519; }
