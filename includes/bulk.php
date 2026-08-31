@@ -19,13 +19,13 @@ if (! defined('ABSPATH')) {
 }
 
 add_action('rest_api_init', function () {
-    register_rest_route('avif-converter-by-ibracodes/v1', '/queue', [
+    register_rest_route('ibracodes-avif-converter/v1', '/queue', [
         'methods' => 'GET',
         'permission_callback' => fn () => current_user_can('manage_options'),
         'callback' => __NAMESPACE__.'\\rest_queue',
     ]);
 
-    register_rest_route('avif-converter-by-ibracodes/v1', '/convert', [
+    register_rest_route('ibracodes-avif-converter/v1', '/convert', [
         'methods' => 'POST',
         'permission_callback' => fn () => current_user_can('manage_options'),
         'callback' => __NAMESPACE__.'\\rest_convert',

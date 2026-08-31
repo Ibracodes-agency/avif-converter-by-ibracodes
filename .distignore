@@ -8,3 +8,5 @@
 /README.md
 /node_modules
 /tests
+# translate.wordpress.org supplies translations for the hosted plugin
+/languages

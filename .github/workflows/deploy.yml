@@ -26,5 +26,5 @@ jobs:
         env:
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
-          SLUG: avif-converter-by-ibracodes
+          SLUG: ibracodes-avif-converter
           ASSETS_DIR: .wordpress-org

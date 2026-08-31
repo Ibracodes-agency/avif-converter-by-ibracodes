@@ -12,7 +12,7 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
-plugin_file="avif-converter-by-ibracodes.php"
+plugin_file="ibracodes-avif-converter.php"
 
 header_version=$(grep -m1 -E '^\s*\*\s*Version:' "$plugin_file" | sed -E 's/.*Version:[[:space:]]*//' | tr -d '[:space:]')
 constant_version=$(grep -m1 -E "^const VERSION" "$plugin_file" | sed -E "s/.*'([^']+)'.*/\1/")

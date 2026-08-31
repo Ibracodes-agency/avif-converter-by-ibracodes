@@ -1,25 +1,33 @@
-=== AVIF Converter by Ibracodes ===
+=== Ibracodes AVIF Converter ===
 Contributors: ibracodes
 Tags: avif, webp, image optimization, performance, compression
 Requires at least: 6.0
 Tested up to: 7.1
-Stable tag: 1.2.2
+Stable tag: 1.3.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Serve your images as AVIF. Converts new uploads, the existing library, and image URLs already saved in old pages.
+Convert images to AVIF and update the image URLs already saved inside Elementor and other page builders, so old pages get smaller too.
 
 == Description ==
 
-Images are usually the heaviest thing a page downloads. AVIF typically cuts
-that weight by half or more compared to JPEG, with no visible quality loss.
+Converting a media library to AVIF is the easy half of the job. The half that
+usually gets skipped: **pages built with Elementor, Divi, Beaver Builder or any
+other builder keep serving the old JPEGs afterwards.** Builders copy the image
+URL as plain text into the page they save, so converting the library changes
+nothing for them — those pages only pick up the new files when a human opens
+and re-saves every one of them.
 
-This plugin converts your images to AVIF using WordPress's own image editor,
-so the generated image sizes simply **are** AVIF. There is no HTML rewriting,
-no `.htaccess` rules and no redirect layer: your theme, your page builder and
-WooCommerce keep working exactly as before and serve the smaller files
-automatically.
+This plugin does both halves. It converts your images, and then it updates
+those stored URLs across posts, pages and builder data, so an existing site
+gets faster without anyone re-saving a single page. There is a preview mode
+that reports exactly what would change before anything is written.
+
+The conversion itself runs through WordPress's own image editor, so the
+generated image sizes simply **are** AVIF. No HTML filtering on every request,
+no `.htaccess` rules, no redirect layer: your theme, your builder and
+WooCommerce keep working exactly as before and serve the smaller files.
 
 **What it does**
 
@@ -52,12 +60,14 @@ Your server needs GD or Imagick with AVIF support to produce AVIF, or with WebP
 support for the fallback. The settings screen shows which one is available and
 what to ask your host for if neither is.
 
+Plugin page: https://ibracodes.com/resources/%d7%aa%d7%95%d7%a1%d7%a3-avif-%d7%9c%d7%95%d7%95%d7%a8%d7%93%d7%a4%d7%a8%d7%a1/
+
 == Installation ==
 
 1. Upload the plugin folder to `/wp-content/plugins/`, or install it through
    Plugins → Add New.
 2. Activate the plugin.
-3. Go to Settings → AVIF Converter by Ibracodes and check the server capability
+3. Go to Settings → Ibracodes AVIF Converter and check the server capability
    card at the top.
 4. Optional: press "Convert entire library" to convert images you uploaded
    before installing the plugin.
@@ -121,6 +131,12 @@ No. It makes no external requests and collects no information.
 
 == Changelog ==
 
+= 1.3.0 =
+* Renamed to Ibracodes AVIF Converter.
+* Translations now come from translate.wordpress.org instead of shipping with
+  the plugin.
+* Declared the full settings schema on registration.
+
 = 1.2.2 =
 * Passes the official Plugin Check with no errors: translator comments,
   prefixed filter name, documented admin query.
@@ -147,6 +163,9 @@ No. It makes no external requests and collects no information.
   library.
 
 == Upgrade Notice ==
+
+= 1.3.0 =
+Renamed to Ibracodes AVIF Converter.
 
 = 1.2.2 =
 Plugin Check clean and verified on WordPress 7.1.
